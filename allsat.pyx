@@ -1,9 +1,6 @@
 cimport allsat
 import time
 from cpython.mem cimport PyMem_Free
-cdef struct List:
-    int * sols
-    List* next
 
 cdef solve (char * dim, int nvar):
     start=time.time()

@@ -361,7 +361,7 @@ struct list* /**int* */ main(char* argv)
      
     
 
-    long int nsol=obdd_decompose(out, s->size, s->root,lsol);
+    long int nsol=obdd_decompose(s->size, s->root,lsol);
     //int* arrayresult=(int *)malloc(((s->size)*nsol) * sizeof(int*));
     //populatearray(lsol,arrayresult,0,s->size);
     /*printf("\n");    

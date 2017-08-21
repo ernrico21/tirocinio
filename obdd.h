@@ -72,7 +72,7 @@ extern uintmax_t obdd_size(obdd_t* p);
  * \return ST_SUCCESS if successful; ST_FAILURE, otherwise.
  * \note    See www.graphviz.org/ .
  */
-extern int obdd_to_dot(int n, obdd_t* p, FILE *out);
+extern int obdd_to_dot(int n, obdd_t* p);
 
 
 /* \brief Count the number of paths from the root to the top terminal in p, which corresponds to the number of total satisfying assignments, i.e. solutions.
@@ -103,7 +103,7 @@ extern void obdd_nsols_gmp(mpz_t result, int n, obdd_t* p);
  * - when this function is called several times, results are appended to output file.
  * - Please take care that a huge number of assignments may be generated.
  */
-extern uintptr_t obdd_decompose(FILE *out, int n, obdd_t* p, struct list* lsol);
+extern uintptr_t obdd_decompose( int n, obdd_t* p, struct list* lsol);
 
 
 /* \brief   Return the total number of obdd nodes that have been created so far.

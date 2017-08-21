@@ -827,7 +827,7 @@ static void solver_refreshobdd(solver *s,struct list* lsol)
     if (s->out != NULL) {
         printf("\tdecomposing bdd...");
         fflush(stdout);
-        obdd_decompose(s->out, s->size, s->root,lsol);
+        obdd_decompose(s->size, s->root,lsol);
     }
     
     obdd_delete_all(s->root);

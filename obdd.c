@@ -242,9 +242,9 @@ void obdd_nsols_gmp(mpz_t result, int n, obdd_t* p)
 #endif
 
 
-int obdd_to_dot(int n, obdd_t* p, FILE *out)
+int obdd_to_dot(int n, obdd_t* p)
 { 
-    if(obdd_const(p)) {
+    /*if(obdd_const(p)) {
         ENSURE_TRUE_WARN(0, "invalid input");
         return ST_FAILURE;
     }
@@ -284,14 +284,14 @@ int obdd_to_dot(int n, obdd_t* p, FILE *out)
     fprintf(out, "%jd [label = 0,shape=box];\n", (intptr_t)obdd_bot());
     fprintf(out, "}\n");
 
-    free(list);
+    free(list);*/
 
-    return ST_SUCCESS;
+    return 0;
 }
 
 
 // Decompose bdd into satisfying assignments.
-static uintptr_t obdd_decompose_main(FILE *out, int n, obdd_t* p, uintptr_t (*func)(FILE *, int, int, int*,struct list*),struct list* lsol)
+static uintptr_t obdd_decompose_main(int n, obdd_t* p, uintptr_t (*func)(int, int, int*,struct list*),struct list* lsol)
 {
   uintptr_t total   = 0;  // total number of total solutions
   int *a = (int*)malloc(sizeof(int)*(n+1));
@@ -310,7 +310,7 @@ static uintptr_t obdd_decompose_main(FILE *out, int n, obdd_t* p, uintptr_t (*fu
       p       = p->lo;
     }
     if(p == obdd_top()) {
-        uintptr_t result = func(out, s, n, a,lsol);
+        uintptr_t result = func( s, n, a,lsol);
 	int *array = (int *)malloc((n +1) * sizeof(int*));
 	struct list* nextsol=new_list(array, NULL);
 	lsol->next=nextsol;
@@ -339,7 +339,7 @@ static uintptr_t obdd_decompose_main(FILE *out, int n, obdd_t* p, uintptr_t (*fu
  * \param   n       the number of variables 
  * \return  the number of total assignments
  */
-static uintptr_t fprintf_partial(FILE *out, int s, int n, int *a,struct list* lsol)
+static uintptr_t fprintf_partial( int s, int n, int *a,struct list* lsol)
 {
     int prev = 0;
     uintptr_t sols = 1;
@@ -361,7 +361,7 @@ static uintptr_t fprintf_partial(FILE *out, int s, int n, int *a,struct list* ls
 }
 
 
-uintptr_t obdd_decompose(FILE *out, int n, obdd_t* p,struct list* lsol)
+uintptr_t obdd_decompose(int n, obdd_t* p,struct list* lsol)
 {
-    return obdd_decompose_main(out, n, p, fprintf_partial,lsol);
+    return obdd_decompose_main(n, p, fprintf_partial,lsol);
 }

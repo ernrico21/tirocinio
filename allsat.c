@@ -675,19 +675,6 @@ static const char *__pyx_f[] = {
 };
 
 /*--- Type declarations ---*/
-struct __pyx_t_6allsat_List;
-
-/* "allsat.pyx":4
- * import time
- * from cpython.mem cimport PyMem_Free
- * cdef struct List:             # <<<<<<<<<<<<<<
- *     int * sols
- *     List* next
- */
-struct __pyx_t_6allsat_List {
-  int *sols;
-  struct __pyx_t_6allsat_List *next;
-};
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -959,8 +946,8 @@ static PyObject *__pyx_int_1;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 
-/* "allsat.pyx":8
- *     List* next
+/* "allsat.pyx":5
+ * from cpython.mem cimport PyMem_Free
  * 
  * cdef solve (char * dim, int nvar):             # <<<<<<<<<<<<<<
  *     start=time.time()
@@ -986,16 +973,16 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
   long __pyx_t_8;
   __Pyx_RefNannySetupContext("solve", 0);
 
-  /* "allsat.pyx":9
+  /* "allsat.pyx":6
  * 
  * cdef solve (char * dim, int nvar):
  *     start=time.time()             # <<<<<<<<<<<<<<
  *     cdef allsat.list* sol=allsat.main(dim)
  *     end=time.time()
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -1009,17 +996,17 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
     }
   }
   if (__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_start = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "allsat.pyx":10
+  /* "allsat.pyx":7
  * cdef solve (char * dim, int nvar):
  *     start=time.time()
  *     cdef allsat.list* sol=allsat.main(dim)             # <<<<<<<<<<<<<<
@@ -1028,16 +1015,16 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
  */
   __pyx_v_sol = main(__pyx_v_dim);
 
-  /* "allsat.pyx":11
+  /* "allsat.pyx":8
  *     start=time.time()
  *     cdef allsat.list* sol=allsat.main(dim)
  *     end=time.time()             # <<<<<<<<<<<<<<
  *     print ("time allsat: "+str(end-start))
  *     nsol = 0
  */
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -1051,40 +1038,40 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_end = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "allsat.pyx":12
+  /* "allsat.pyx":9
  *     cdef allsat.list* sol=allsat.main(dim)
  *     end=time.time()
  *     print ("time allsat: "+str(end-start))             # <<<<<<<<<<<<<<
  *     nsol = 0
  *     matrix=[]
  */
-  __pyx_t_1 = PyNumber_Subtract(__pyx_v_end, __pyx_v_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_v_end, __pyx_v_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_kp_s_time_allsat, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_kp_s_time_allsat, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "allsat.pyx":13
+  /* "allsat.pyx":10
  *     end=time.time()
  *     print ("time allsat: "+str(end-start))
  *     nsol = 0             # <<<<<<<<<<<<<<
@@ -1094,19 +1081,19 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_nsol = __pyx_int_0;
 
-  /* "allsat.pyx":14
+  /* "allsat.pyx":11
  *     print ("time allsat: "+str(end-start))
  *     nsol = 0
  *     matrix=[]             # <<<<<<<<<<<<<<
  *     while sol.next:
  *         sol=sol.next
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_matrix = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "allsat.pyx":15
+  /* "allsat.pyx":12
  *     nsol = 0
  *     matrix=[]
  *     while sol.next:             # <<<<<<<<<<<<<<
@@ -1117,7 +1104,7 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
     __pyx_t_4 = (__pyx_v_sol->next != 0);
     if (!__pyx_t_4) break;
 
-    /* "allsat.pyx":16
+    /* "allsat.pyx":13
  *     matrix=[]
  *     while sol.next:
  *         sol=sol.next             # <<<<<<<<<<<<<<
@@ -1127,19 +1114,19 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
     __pyx_t_5 = __pyx_v_sol->next;
     __pyx_v_sol = __pyx_t_5;
 
-    /* "allsat.pyx":17
+    /* "allsat.pyx":14
  *     while sol.next:
  *         sol=sol.next
  *         matrix.append([])             # <<<<<<<<<<<<<<
  *         for i in range(0,nvar):
  *             matrix[nsol].append(sol.value[i])
  */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_matrix, __pyx_t_2); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_matrix, __pyx_t_2); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 14, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "allsat.pyx":18
+    /* "allsat.pyx":15
  *         sol=sol.next
  *         matrix.append([])
  *         for i in range(0,nvar):             # <<<<<<<<<<<<<<
@@ -1150,23 +1137,23 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_i = __pyx_t_8;
 
-      /* "allsat.pyx":19
+      /* "allsat.pyx":16
  *         matrix.append([])
  *         for i in range(0,nvar):
  *             matrix[nsol].append(sol.value[i])             # <<<<<<<<<<<<<<
  *         PyMem_Free(sol.value)
  *         nsol+=1
  */
-      __pyx_t_2 = PyObject_GetItem(__pyx_v_matrix, __pyx_v_nsol); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_2 = PyObject_GetItem(__pyx_v_matrix, __pyx_v_nsol); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_sol->value[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_sol->value[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_t_1); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_t_1); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 16, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
 
-    /* "allsat.pyx":20
+    /* "allsat.pyx":17
  *         for i in range(0,nvar):
  *             matrix[nsol].append(sol.value[i])
  *         PyMem_Free(sol.value)             # <<<<<<<<<<<<<<
@@ -1175,20 +1162,20 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
  */
     PyMem_Free(__pyx_v_sol->value);
 
-    /* "allsat.pyx":21
+    /* "allsat.pyx":18
  *             matrix[nsol].append(sol.value[i])
  *         PyMem_Free(sol.value)
  *         nsol+=1             # <<<<<<<<<<<<<<
  *     return matrix
  * 
  */
-    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_nsol, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_nsol, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_nsol, __pyx_t_1);
     __pyx_t_1 = 0;
   }
 
-  /* "allsat.pyx":22
+  /* "allsat.pyx":19
  *         PyMem_Free(sol.value)
  *         nsol+=1
  *     return matrix             # <<<<<<<<<<<<<<
@@ -1200,8 +1187,8 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
   __pyx_r = __pyx_v_matrix;
   goto __pyx_L0;
 
-  /* "allsat.pyx":8
- *     List* next
+  /* "allsat.pyx":5
+ * from cpython.mem cimport PyMem_Free
  * 
  * cdef solve (char * dim, int nvar):             # <<<<<<<<<<<<<<
  *     start=time.time()
@@ -1225,7 +1212,7 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
   return __pyx_r;
 }
 
-/* "allsat.pyx":24
+/* "allsat.pyx":21
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
@@ -1265,11 +1252,11 @@ static PyObject *__pyx_pw_6allsat_1solver(PyObject *__pyx_self, PyObject *__pyx_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nvar)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, 1); __PYX_ERR(0, 24, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, 1); __PYX_ERR(0, 21, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "solver") < 0)) __PYX_ERR(0, 24, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "solver") < 0)) __PYX_ERR(0, 21, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1282,7 +1269,7 @@ static PyObject *__pyx_pw_6allsat_1solver(PyObject *__pyx_self, PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 24, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 21, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("allsat.solver", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1303,22 +1290,22 @@ static PyObject *__pyx_pf_6allsat_solver(CYTHON_UNUSED PyObject *__pyx_self, PyO
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("solver", 0);
 
-  /* "allsat.pyx":25
+  /* "allsat.pyx":22
  * 
  * def solver (dimacs,nvar):
  *     return solve (dimacs, nvar)             # <<<<<<<<<<<<<<
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_AsWritableString(__pyx_v_dimacs); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nvar); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
-  __pyx_t_3 = __pyx_f_6allsat_solve(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_AsWritableString(__pyx_v_dimacs); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nvar); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_6allsat_solve(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "allsat.pyx":24
+  /* "allsat.pyx":21
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
@@ -1379,7 +1366,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 15, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1389,17 +1376,17 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "allsat.pyx":24
+  /* "allsat.pyx":21
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
  *     return solve (dimacs, nvar)
  * 
  */
-  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_dimacs, __pyx_n_s_nvar); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_dimacs, __pyx_n_s_nvar); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_allsat_pyx, __pyx_n_s_solver, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_allsat_pyx, __pyx_n_s_solver, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1513,23 +1500,23 @@ PyMODINIT_FUNC PyInit_allsat(void)
  * cimport allsat
  * import time             # <<<<<<<<<<<<<<
  * from cpython.mem cimport PyMem_Free
- * cdef struct List:
+ * 
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_time, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "allsat.pyx":24
+  /* "allsat.pyx":21
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
  *     return solve (dimacs, nvar)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6allsat_1solver, NULL, __pyx_n_s_allsat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6allsat_1solver, NULL, __pyx_n_s_allsat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_solver, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_solver, __pyx_t_1) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "allsat.pyx":1
