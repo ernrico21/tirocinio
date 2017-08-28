@@ -6,7 +6,7 @@ cdef solve (char * dim, int nvar):
     start=time.time()
     cdef allsat.list* sol=allsat.main(dim)
     end=time.time()
-    print ("time allsat: "+str(end-start))
+    #print ("time allsat: "+str(end-start))
     nsol = 0
     matrix=[]
     while sol.next:    
@@ -16,6 +16,7 @@ cdef solve (char * dim, int nvar):
             matrix[nsol].append(sol.value[i])
         PyMem_Free(sol.value)
         nsol+=1
+    matrix.pop(-1)
     return matrix
 
 def solver (dimacs,nvar):

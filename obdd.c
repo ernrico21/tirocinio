@@ -352,6 +352,7 @@ static uintptr_t fprintf_partial( int s, int n, int *a,struct list* lsol)
 	    {
 		    lsol->value[j]=1;
     	}
+       // lsol->value[j]=a[j];
         sols = my_mul_2exp(sols, abs(a[j])-prev-1);
         prev = abs(a[j]);
     }

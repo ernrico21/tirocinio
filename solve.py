@@ -223,22 +223,32 @@ Printing time stats in shell 3rd parameter =2
 
 
 def getSolutions(s,smatrix=0,stat=0,name="outputfile"):
+    print name
     start=time.time()
     res=()
     res = buildDimacsString(s)  
-
-####getting results from bdd_allsat
-
+    #getting results from bdd_allsat
     start=time.time()
     matrix=allsat.solver('p cnf '+str(res[1])+' '+str(res[2])+'\n'+res[0],res[1])
     end=time.time()
-    print "total time: "+str(end-start)
-    #numpy.set_printoptions(threshold=numpy.nan)
-    print numpy.matrix(matrix)
-    #print matrix    
-    print len(matrix)
-
-
+    if smatrix==1:
+        numpy.set_printoptions(threshold=numpy.nan)
+        print(numpy.matrix(matrix))
+    if stat==1:
+        f2=open('all100b','a')
+        f2.write(name+"\n")
+        f2.write("number of variables: "+str(res[1])+"\n")
+        f2.write("number of solutions: "+str(len(matrix))+"\n")
+        f2.write("time allsat to find the solutions: "+str(end-start)+"\n")
+        f2.write("total time: "+str(end-start)+"\n\n")    
+        f2.close()
+    elif stat ==2:
+        print("number of variables: "+str(res[1]))
+        print("number of solutions: "+str(len(matrix)))
+        print("time: "+str(end-start))  
+    matrix= None
+    res= None    
+    #return (matrix,res[3]) 
 '''
 s1='And(Or(Not(var1), var2, Not(Not(Not(var3))), Not(Not(var4))), Or(Not(var2), var1, var3,var5))And(Or(var1, var2, var4))'
 s2='And(Or(Not(var1), var2, Not(Not(Not(var3))), Not(Not(var4))), Or(Not(var2), var1, var3,var5), Or(var1, var2, var4))'
@@ -254,20 +264,23 @@ print dims2[0]
 print dims3[0]
 '''
 
-f=open("prova","r")
-sf=f.readlines()
-i=0
-while i>=0:
-    if sf[0][0]=='c':
-        sf.pop(0)
-        i=1
-    else:
-        i=-1
-
-s=buildFormula(sf)
-#print s
-#print(buildDimacsString(s)[0])
-getSolutions(s,0,2)
+da=901
+cwd = os.getcwd()
+direc=cwd+'/cnf100/'
+for j in range (da,da+100):
+    if j != 6 and j != 70 and j != 136 and j != 342 and j != 516 and j != 704 and j != 717 and j != 766 and j != 776 and j != 793 and j != 834 and j != 836 and j != 837 and j != 936:
+        namefile="uf100-0"+str(j)+".cnf"
+        f=open(direc+namefile,"r")
+        sf=f.readlines()
+        i=0
+        while i>=0:
+            if sf[0][0]=='c':
+                sf.pop(0)
+                i=1
+            else:
+                i=-1
+        s=buildFormula(sf)
+        getSolutions(s,0,1,namefile)
 
 
  

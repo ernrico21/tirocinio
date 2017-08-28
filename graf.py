@@ -4,7 +4,7 @@ X = []
 Y = []
 Y2 = []
 X2 = []
-f=open('all125','r')
+f=open('all100','r')
 split=f.read().split('\n')
 i=1
 j=0
@@ -24,9 +24,9 @@ while i<len(split)-2:
     if tt > 0:
         X2.append(ns*nv)
         Y2.append(tt-ta)
-plt.plot(X,Y,'.',label='allsat time')
+
+plt.vlines(X,[0],Y,label='time')
 plt.legend()
-plt.show()
-plt.plot(X2,Y2,'.',label='Y:time creating matrix X:number of value\'s in matrix')
-plt.legend()
+plt.ylabel('time')
+plt.xlabel('number of solutions')
 plt.show()
