@@ -113,71 +113,88 @@ def buildDimacsString(c):
     indexvariable=1 #index for variables
     minus=0 #when writing variabile if is negated
     popped_and=0 #if i justo sow ) and poped And out of the stack, if i see "," and there is And as head of the stack i have not to write dow anything
-
+    operationpar=0 #too see if i'm a variable name or is operation parentesys
+    varparentesys=0 #same as above
     lVal=[cnfstring,variable,indexvariable,variables,inv_variables,minus,nVar]
-
+    
     while i<leng:
+        operations
         j=-1
         if c[i]=='A':
             j=findAnd(c,i)
             if j!=-1 :
                 operations.append('And')   #put the operations in the stack 
+                operationpar=1
                 i=i+2        
         elif c[i] == 'O':
             j=findOr(c,i)
             if j!=-1:
                 operations.append('Or')      
+                operationpar=1
                 i=i+2             
         elif c[i] == 'N':        
             j= findNot(c,i)
             if j!=-1:
                 operations.append('Not')      
+                operationpar=1
                 i=i+2                
-        elif c[i] == ',':                 
-            if len(buff) != 0:
-                k=0
-                lengbuff=len(buff)        
-                while k<lengbuff :
-                    lVal[1] += buff.pop(0)          #when "," means that if i was reading a variable the variable is finished so i pop it off the buff
-                    k+=1
-            if operations[-1] == 'Or':               #if "or" i just add the variable
-                lVal=addvariable(lVal)
-                popped_and=0
-            elif operations[-1] == 'And':   #"and"means that this clause is finished so i start another one
-                if popped_and==0:
+        elif c[i] == ',':      
+            if varparentesys==0 :          
+                if len(buff) != 0:
+                    k=0
+                    lengbuff=len(buff)        
+                    while k<lengbuff :
+                        lVal[1] += buff.pop(0)          #when "," means that if i was reading a variable the variable is finished so i pop it off the buff
+                        k+=1
+                if operations[-1] == 'Or':               #if "or" i just add the variable
                     lVal=addvariable(lVal)
-                    lVal[0]+='0\n'
-                    nRow+=1 
-                else:
                     popped_and=0
+                elif operations[-1] == 'And':   #"and"means that this clause is finished so i start another one
+                    if popped_and==0:
+                        lVal=addvariable(lVal)
+                        lVal[0]+='0\n'
+                        nRow+=1 
+                    else:
+                        popped_and=0
+            else:
+                buff.append(c[i])
 
         elif c[i] == ')':       #when i see ')' means an operation is finished, so after doing the opesations i pop the operations off the stack
-            if len(buff) != 0:     #same as the "," for the variables
-                k=0
-                lengbuff=len(buff)
-                while k<lengbuff :
-                    lVal[1] += buff.pop(0)
-                    k+=1
-            if operations[-1] == 'Not' :  #set the controller to 1 for the not
-#                variable='-'+variable
-                lVal[5]+=1
-                popped_and=0
-                operations.pop()
-            elif operations[-1] == 'Or' : 
-                lVal=addvariable(lVal)
-                operations.pop()
-                popped_and=0
+            if varparentesys == 0:
+                if len(buff) != 0:     #same as the "," for the variables
+                    k=0
+                    lengbuff=len(buff)
+                    while k<lengbuff :
+                        lVal[1] += buff.pop(0)
+                        k+=1
+                if operations[-1] == 'Not' :  #set the controller to 1 for the not
+    #                variable='-'+variable
+                    lVal[5]+=1
+                    popped_and=0
+                    operations.pop()
+                elif operations[-1] == 'Or' : 
+                    lVal=addvariable(lVal)
+                    operations.pop()
+                    popped_and=0
 
-            elif operations[-1]== 'And' :
-                lVal=addvariable(lVal)
-                lVal[0]+='0\n'
-                nRow+=1
-                popped_and=1                
-                operations.pop()                 
+                elif operations[-1]== 'And' :
+                    lVal=addvariable(lVal)
+                    lVal[0]+='0\n'
+                    nRow+=1
+                    popped_and=1                
+                    operations.pop() 
+            else:
+                buff.append(c[i])
+                varparentesys=0
+        elif c[i]=='(':
+            if operationpar==0:
+                buff.append(c[i])
+                varparentesys=1
         else:
-            if c[i]!='('  and j== -1 and c[i]!=' ':              #put the char in the buff for creating the variable name
+            if j== -1 and c[i]!=' ':              #put the char in the buff for creating the variable name
                 buff.append(c[i])
                 popped_and=0
+                operationpar=0
         i+=1  
     return (lVal[0],lVal[6],nRow,lVal[4],lVal[3])
 
@@ -248,22 +265,22 @@ def getSolutions(s,smatrix=0,stat=0,name="outputfile"):
         print("time: "+str(end-start))  
     matrix= None
     res= None    
-    #return (matrix,res[3]) 
-'''
-s1='And(Or(Not(var1), var2, Not(Not(Not(var3))), Not(Not(var4))), Or(Not(var2), var1, var3,var5))And(Or(var1, var2, var4))'
+    return (matrix,res[3]) 
+#'''
+s1='And(Or(Not(var1(x,y)), var2(x,y), Not(Not(Not(var3(x,y)))), Not(Not(var4(x,y)))), Or(Not(var2(x,y)), var1(x,y), var3(x,y),var5(x,y)))And(Or(var1(x,y), var2(x,y), var4(x,y)))'
 s2='And(Or(Not(var1), var2, Not(Not(Not(var3))), Not(Not(var4))), Or(Not(var2), var1, var3,var5), Or(var1, var2, var4))'
 s3='And(And(Or(Not(var1),Or(var2,Or(Not(Not(Not(var3))), Not(Not(var4))))),Or(Not(var2),Or(var1,Or(var3,var5)))),Or(var1, Or(var2, var4)))'
 s3='And(And(And(Or(1,Not(2)),3),4),5)'
 
 dims1=buildDimacsString(s1)
-dims2=buildDimacsString(s2)
-dims3=buildDimacsString(s3)
+print dims1
+print buildDimacsString(s2)
+#dims3=buildDimacsString(s3)
 
-print dims1[0]
-print dims2[0]
-print dims3[0]
+#print dims1[0]
+#print dims2[0]
+#print dims3[0]
 '''
-
 da=901
 cwd = os.getcwd()
 direc=cwd+'/cnf100/'
@@ -281,6 +298,6 @@ for j in range (da,da+100):
                 i=-1
         s=buildFormula(sf)
         getSolutions(s,0,1,namefile)
-
+'''
 
  
