@@ -833,29 +833,6 @@ static PyObject* __Pyx_PyInt_AddObjC(PyObject *op1, PyObject *op2, long intval, 
     (inplace ? PyNumber_InPlaceAdd(op1, op2) : PyNumber_Add(op1, op2))
 #endif
 
-/* pop_index.proto */
-static PyObject* __Pyx__PyObject_PopNewIndex(PyObject* L, PyObject* py_ix);
-static PyObject* __Pyx__PyObject_PopIndex(PyObject* L, PyObject* py_ix);
-#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
-static PyObject* __Pyx__PyList_PopIndex(PyObject* L, PyObject* py_ix, Py_ssize_t ix);
-#define __Pyx_PyObject_PopIndex(L, py_ix, ix, is_signed, type, to_py_func) (\
-    (likely(PyList_CheckExact(L) && __Pyx_fits_Py_ssize_t(ix, type, is_signed))) ?\
-        __Pyx__PyList_PopIndex(L, py_ix, ix) : (\
-        (unlikely(py_ix == Py_None)) ? __Pyx__PyObject_PopNewIndex(L, to_py_func(ix)) :\
-            __Pyx__PyObject_PopIndex(L, py_ix)))
-#define __Pyx_PyList_PopIndex(L, py_ix, ix, is_signed, type, to_py_func) (\
-    __Pyx_fits_Py_ssize_t(ix, type, is_signed) ?\
-        __Pyx__PyList_PopIndex(L, py_ix, ix) : (\
-        (unlikely(py_ix == Py_None)) ? __Pyx__PyObject_PopNewIndex(L, to_py_func(ix)) :\
-            __Pyx__PyObject_PopIndex(L, py_ix)))
-#else
-#define __Pyx_PyList_PopIndex(L, py_ix, ix, is_signed, type, to_py_func)\
-    __Pyx_PyObject_PopIndex(L, py_ix, ix, is_signed, type, to_py_func)
-#define __Pyx_PyObject_PopIndex(L, py_ix, ix, is_signed, type, to_py_func) (\
-    (unlikely(py_ix == Py_None)) ? __Pyx__PyObject_PopNewIndex(L, to_py_func(ix)) :\
-        __Pyx__PyObject_PopIndex(L, py_ix))
-#endif
-
 /* RaiseArgTupleInvalid.proto */
 static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
     Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
@@ -921,7 +898,6 @@ int __pyx_module_is_main_allsat = 0;
 
 /* Implementation of 'allsat' */
 static PyObject *__pyx_builtin_range;
-static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_nvar[] = "nvar";
 static const char __pyx_k_test[] = "__test__";
@@ -942,7 +918,6 @@ static PyObject *__pyx_n_s_dimacs;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_nvar;
-static PyObject *__pyx_n_s_pop;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_solver;
 static PyObject *__pyx_n_s_test;
@@ -950,7 +925,6 @@ static PyObject *__pyx_n_s_time;
 static PyObject *__pyx_pf_6allsat_solver(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dimacs, PyObject *__pyx_v_nvar); /* proto */
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
-static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 
@@ -975,10 +949,10 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_t_4;
-  struct list *__pyx_t_5;
+  int __pyx_t_5;
   int __pyx_t_6;
-  int __pyx_t_7;
-  long __pyx_t_8;
+  long __pyx_t_7;
+  struct list *__pyx_t_8;
   __Pyx_RefNannySetupContext("solve", 0);
 
   /* "allsat.pyx":6
@@ -1071,7 +1045,7 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
  *     nsol = 0
  *     matrix=[]             # <<<<<<<<<<<<<<
  *     while sol.next:
- *         sol=sol.next
+ *         matrix.append([])
  */
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -1082,8 +1056,8 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
  *     nsol = 0
  *     matrix=[]
  *     while sol.next:             # <<<<<<<<<<<<<<
- *         sol=sol.next
  *         matrix.append([])
+ *         for i in range(0,nvar):
  */
   while (1) {
     __pyx_t_4 = (__pyx_v_sol->next != 0);
@@ -1092,88 +1066,77 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
     /* "allsat.pyx":13
  *     matrix=[]
  *     while sol.next:
- *         sol=sol.next             # <<<<<<<<<<<<<<
- *         matrix.append([])
- *         for i in range(0,nvar):
- */
-    __pyx_t_5 = __pyx_v_sol->next;
-    __pyx_v_sol = __pyx_t_5;
-
-    /* "allsat.pyx":14
- *     while sol.next:
- *         sol=sol.next
  *         matrix.append([])             # <<<<<<<<<<<<<<
  *         for i in range(0,nvar):
  *             matrix[nsol].append(sol.value[i])
  */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_matrix, __pyx_t_1); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_matrix, __pyx_t_1); if (unlikely(__pyx_t_5 == -1)) __PYX_ERR(0, 13, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "allsat.pyx":15
- *         sol=sol.next
+    /* "allsat.pyx":14
+ *     while sol.next:
  *         matrix.append([])
  *         for i in range(0,nvar):             # <<<<<<<<<<<<<<
  *             matrix[nsol].append(sol.value[i])
  *         PyMem_Free(sol.value)
  */
-    __pyx_t_7 = __pyx_v_nvar;
-    for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
-      __pyx_v_i = __pyx_t_8;
+    __pyx_t_6 = __pyx_v_nvar;
+    for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
+      __pyx_v_i = __pyx_t_7;
 
-      /* "allsat.pyx":16
+      /* "allsat.pyx":15
  *         matrix.append([])
  *         for i in range(0,nvar):
  *             matrix[nsol].append(sol.value[i])             # <<<<<<<<<<<<<<
  *         PyMem_Free(sol.value)
  *         nsol+=1
  */
-      __pyx_t_1 = PyObject_GetItem(__pyx_v_matrix, __pyx_v_nsol); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+      __pyx_t_1 = PyObject_GetItem(__pyx_v_matrix, __pyx_v_nsol); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyInt_From_int((__pyx_v_sol->value[__pyx_v_i])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int((__pyx_v_sol->value[__pyx_v_i])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_6 = __Pyx_PyObject_Append(__pyx_t_1, __pyx_t_2); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 16, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Append(__pyx_t_1, __pyx_t_2); if (unlikely(__pyx_t_5 == -1)) __PYX_ERR(0, 15, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
 
-    /* "allsat.pyx":17
+    /* "allsat.pyx":16
  *         for i in range(0,nvar):
  *             matrix[nsol].append(sol.value[i])
  *         PyMem_Free(sol.value)             # <<<<<<<<<<<<<<
  *         nsol+=1
- *     matrix.pop(-1)
+ *         sol=sol.next
  */
     PyMem_Free(__pyx_v_sol->value);
 
-    /* "allsat.pyx":18
+    /* "allsat.pyx":17
  *             matrix[nsol].append(sol.value[i])
  *         PyMem_Free(sol.value)
  *         nsol+=1             # <<<<<<<<<<<<<<
- *     matrix.pop(-1)
- *     return matrix
+ *         sol=sol.next
+ *     #if len(matrix)>0:
  */
-    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_nsol, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_nsol, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF_SET(__pyx_v_nsol, __pyx_t_2);
     __pyx_t_2 = 0;
-  }
 
-  /* "allsat.pyx":19
+    /* "allsat.pyx":18
  *         PyMem_Free(sol.value)
  *         nsol+=1
- *     matrix.pop(-1)             # <<<<<<<<<<<<<<
- *     return matrix
- * 
+ *         sol=sol.next             # <<<<<<<<<<<<<<
+ *     #if len(matrix)>0:
+ *     #    matrix.pop(-1)
  */
-  __pyx_t_2 = __Pyx_PyList_PopIndex(__pyx_v_matrix, __pyx_int_neg_1, -1L, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_8 = __pyx_v_sol->next;
+    __pyx_v_sol = __pyx_t_8;
+  }
 
-  /* "allsat.pyx":20
- *         nsol+=1
- *     matrix.pop(-1)
+  /* "allsat.pyx":21
+ *     #if len(matrix)>0:
+ *     #    matrix.pop(-1)
  *     return matrix             # <<<<<<<<<<<<<<
  * 
  * def solver (dimacs,nvar):
@@ -1208,7 +1171,7 @@ static PyObject *__pyx_f_6allsat_solve(char *__pyx_v_dim, int __pyx_v_nvar) {
   return __pyx_r;
 }
 
-/* "allsat.pyx":22
+/* "allsat.pyx":23
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
@@ -1248,11 +1211,11 @@ static PyObject *__pyx_pw_6allsat_1solver(PyObject *__pyx_self, PyObject *__pyx_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nvar)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, 1); __PYX_ERR(0, 22, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, 1); __PYX_ERR(0, 23, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "solver") < 0)) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "solver") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1265,7 +1228,7 @@ static PyObject *__pyx_pw_6allsat_1solver(PyObject *__pyx_self, PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("solver", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("allsat.solver", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1286,22 +1249,22 @@ static PyObject *__pyx_pf_6allsat_solver(CYTHON_UNUSED PyObject *__pyx_self, PyO
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("solver", 0);
 
-  /* "allsat.pyx":23
+  /* "allsat.pyx":24
  * 
  * def solver (dimacs,nvar):
  *     return solve (dimacs, nvar)             # <<<<<<<<<<<<<<
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_AsWritableString(__pyx_v_dimacs); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nvar); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_t_3 = __pyx_f_6allsat_solve(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_AsWritableString(__pyx_v_dimacs); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nvar); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_6allsat_solve(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "allsat.pyx":22
+  /* "allsat.pyx":23
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
@@ -1351,7 +1314,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_nvar, __pyx_k_nvar, sizeof(__pyx_k_nvar), 0, 0, 1, 1},
-  {&__pyx_n_s_pop, __pyx_k_pop, sizeof(__pyx_k_pop), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_solver, __pyx_k_solver, sizeof(__pyx_k_solver), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -1359,7 +1321,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 14, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1369,17 +1331,17 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "allsat.pyx":22
+  /* "allsat.pyx":23
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
  *     return solve (dimacs, nvar)
  * 
  */
-  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_dimacs, __pyx_n_s_nvar); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_dimacs, __pyx_n_s_nvar); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_allsat_pyx, __pyx_n_s_solver, 22, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_allsat_pyx, __pyx_n_s_solver, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1391,7 +1353,6 @@ static int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1501,16 +1462,16 @@ PyMODINIT_FUNC PyInit_allsat(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "allsat.pyx":22
+  /* "allsat.pyx":23
  *     return matrix
  * 
  * def solver (dimacs,nvar):             # <<<<<<<<<<<<<<
  *     return solve (dimacs, nvar)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6allsat_1solver, NULL, __pyx_n_s_allsat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6allsat_1solver, NULL, __pyx_n_s_allsat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_solver, __pyx_t_1) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_solver, __pyx_t_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "allsat.pyx":1
@@ -2011,41 +1972,6 @@ static PyObject* __Pyx_PyInt_AddObjC(PyObject *op1, PyObject *op2, CYTHON_UNUSED
             return PyFloat_FromDouble(result);
     }
     return (inplace ? PyNumber_InPlaceAdd : PyNumber_Add)(op1, op2);
-}
-#endif
-
-/* pop_index */
-    static PyObject* __Pyx__PyObject_PopNewIndex(PyObject* L, PyObject* py_ix) {
-    PyObject *r;
-    if (unlikely(!py_ix)) return NULL;
-    r = __Pyx__PyObject_PopIndex(L, py_ix);
-    Py_DECREF(py_ix);
-    return r;
-}
-static PyObject* __Pyx__PyObject_PopIndex(PyObject* L, PyObject* py_ix) {
-    return __Pyx_PyObject_CallMethod1(L, __pyx_n_s_pop, py_ix);
-}
-#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
-static PyObject* __Pyx__PyList_PopIndex(PyObject* L, PyObject* py_ix, Py_ssize_t ix) {
-    Py_ssize_t size = PyList_GET_SIZE(L);
-    if (likely(size > (((PyListObject*)L)->allocated >> 1))) {
-        Py_ssize_t cix = ix;
-        if (cix < 0) {
-            cix += size;
-        }
-        if (likely(0 <= cix && cix < size)) {
-            PyObject* v = PyList_GET_ITEM(L, cix);
-            Py_SIZE(L) -= 1;
-            size -= 1;
-            memmove(&PyList_GET_ITEM(L, cix), &PyList_GET_ITEM(L, cix+1), (size_t)(size-cix)*sizeof(PyObject*));
-            return v;
-        }
-    }
-    if (py_ix == Py_None) {
-        return __Pyx__PyObject_PopNewIndex(L, PyInt_FromSsize_t(ix));
-    } else {
-        return __Pyx__PyObject_PopIndex(L, py_ix);
-    }
 }
 #endif
 

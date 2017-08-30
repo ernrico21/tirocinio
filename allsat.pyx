@@ -10,13 +10,14 @@ cdef solve (char * dim, int nvar):
     nsol = 0
     matrix=[]
     while sol.next:    
-        sol=sol.next
         matrix.append([])
         for i in range(0,nvar):
             matrix[nsol].append(sol.value[i])
         PyMem_Free(sol.value)
         nsol+=1
-    matrix.pop(-1)
+        sol=sol.next
+    #if len(matrix)>0:
+    #    matrix.pop(-1)
     return matrix
 
 def solver (dimacs,nvar):

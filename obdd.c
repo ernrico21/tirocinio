@@ -311,10 +311,10 @@ static uintptr_t obdd_decompose_main(int n, obdd_t* p, uintptr_t (*func)(int, in
     }
     if(p == obdd_top()) {
         uintptr_t result = func( s, n, a,lsol);
-	int *array = (int *)malloc((n +1) * sizeof(int*));
-	struct list* nextsol=new_list(array, NULL);
-	lsol->next=nextsol;
-	lsol=nextsol;
+	    int *array = (int *)malloc((n +1) * sizeof(int*));
+	    struct list* nextsol=new_list(array, NULL);
+	    lsol->next=nextsol;
+	    lsol=nextsol;
 	
         if(total < UINTPTR_MAX - result)
             total += result;
@@ -357,7 +357,7 @@ static uintptr_t fprintf_partial( int s, int n, int *a,struct list* lsol)
         prev = abs(a[j]);
     }
     //fprintf(out, "\n");
-    //printf("\n");  
+   // printf("\n");  
     return my_mul_2exp(sols, n-prev);
 }
 

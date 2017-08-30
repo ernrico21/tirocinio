@@ -1,594 +1,552 @@
 uf125-01.cnf
 number of variables: 125
-number of solutions: 18424
-time allsat to find the solutions: 0.267575025558
-total time: 0.828714132309
+number of solutions: 18423
+time allsat to find the solutions: 0.418231964111
+total time: 0.418231964111
 
 uf125-02.cnf
 number of variables: 125
-number of solutions: 96
-time allsat to find the solutions: 0.0820460319519
-total time: 0.0875549316406
+number of solutions: 95
+time allsat to find the solutions: 0.0572009086609
+total time: 0.0572009086609
 
 uf125-04.cnf
 number of variables: 125
-number of solutions: 997816
-time allsat to find the solutions: 7.71788787842
-total time: 42.2848348618
+number of solutions: 997815
+time allsat to find the solutions: 20.7274210453
+total time: 20.7274210453
 
 uf125-05.cnf
 number of variables: 125
-number of solutions: 33368
-time allsat to find the solutions: 0.307187795639
-total time: 1.34748387337
-
-uf125-06.cnf
-number of variables: 125
-number of solutions: 3588
-time allsat to find the solutions: 0.152973175049
-total time: 0.269827127457
+number of solutions: 33367
+time allsat to find the solutions: 0.716011047363
+total time: 0.716011047363
 
 uf125-08.cnf
 number of variables: 125
-number of solutions: 99526
-time allsat to find the solutions: 0.625926017761
-total time: 4.22398996353
+number of solutions: 99525
+time allsat to find the solutions: 1.15427613258
+total time: 1.15427613258
 
 uf125-09.cnf
 number of variables: 125
-number of solutions: 110260
-time allsat to find the solutions: 0.66185092926
-total time: 4.19966697693
+number of solutions: 110259
+time allsat to find the solutions: 1.32364106178
+total time: 1.32364106178
 
 uf125-010.cnf
 number of variables: 125
-number of solutions: 5296
-time allsat to find the solutions: 0.116271018982
-total time: 0.287451982498
+number of solutions: 5295
+time allsat to find the solutions: 0.141303062439
+total time: 0.141303062439
 
 uf125-011.cnf
 number of variables: 125
-number of solutions: 176514
-time allsat to find the solutions: 0.972227096558
-total time: 6.7111260891
+number of solutions: 176513
+time allsat to find the solutions: 2.02849292755
+total time: 2.02849292755
 
 uf125-012.cnf
 number of variables: 125
-number of solutions: 105760
-time allsat to find the solutions: 0.551866054535
-total time: 3.87055420876
+number of solutions: 105759
+time allsat to find the solutions: 1.10528302193
+total time: 1.10528302193
 
 uf125-013.cnf
 number of variables: 125
-number of solutions: 460
-time allsat to find the solutions: 0.0980980396271
-total time: 0.116719007492
+number of solutions: 459
+time allsat to find the solutions: 0.0739271640778
+total time: 0.0739271640778
 
 uf125-014.cnf
 number of variables: 125
-number of solutions: 768
-time allsat to find the solutions: 0.0403468608856
-total time: 0.0725820064545
+number of solutions: 767
+time allsat to find the solutions: 0.0229830741882
+total time: 0.0229830741882
 
 uf125-015.cnf
 number of variables: 125
-number of solutions: 147072
-time allsat to find the solutions: 1.08431100845
-total time: 5.81033301353
+number of solutions: 147071
+time allsat to find the solutions: 1.65112113953
+total time: 1.65112113953
 
 uf125-016.cnf
 number of variables: 125
-number of solutions: 4832
-time allsat to find the solutions: 0.16125702858
-total time: 0.316284894943
+number of solutions: 4831
+time allsat to find the solutions: 0.135504961014
+total time: 0.135504961014
 
 uf125-017.cnf
 number of variables: 125
-number of solutions: 3800
-time allsat to find the solutions: 0.138226032257
-total time: 0.26188492775
+number of solutions: 3799
+time allsat to find the solutions: 0.135074853897
+total time: 0.135074853897
 
 uf125-018.cnf
 number of variables: 125
-number of solutions: 2304
-time allsat to find the solutions: 0.0762341022491
-total time: 0.155158996582
+number of solutions: 2303
+time allsat to find the solutions: 0.0762560367584
+total time: 0.0762560367584
 
 uf125-019.cnf
 number of variables: 125
-number of solutions: 395940
-time allsat to find the solutions: 2.55323004723
-total time: 15.4384920597
+number of solutions: 395939
+time allsat to find the solutions: 4.09141993523
+total time: 4.09141993523
 
 uf125-020.cnf
 number of variables: 125
-number of solutions: 3124
-time allsat to find the solutions: 0.0951428413391
-total time: 0.198709964752
+number of solutions: 3123
+time allsat to find the solutions: 0.0700018405914
+total time: 0.0700018405914
 
 uf125-021.cnf
 number of variables: 125
-number of solutions: 1344
-time allsat to find the solutions: 0.120801925659
-total time: 0.169333934784
+number of solutions: 1343
+time allsat to find the solutions: 0.0939140319824
+total time: 0.0939140319824
 
 uf125-022.cnf
 number of variables: 125
-number of solutions: 532504
-time allsat to find the solutions: 3.11796784401
-total time: 20.7871448994
+number of solutions: 532503
+time allsat to find the solutions: 6.65580415726
+total time: 6.65580415726
 
 uf125-023.cnf
 number of variables: 125
-number of solutions: 12448
-time allsat to find the solutions: 0.18482208252
-total time: 0.575569152832
+number of solutions: 12447
+time allsat to find the solutions: 0.150545120239
+total time: 0.150545120239
 
 uf125-024.cnf
 number of variables: 125
-number of solutions: 1816
-time allsat to find the solutions: 0.0975229740143
-total time: 0.164655923843
+number of solutions: 1815
+time allsat to find the solutions: 0.0677580833435
+total time: 0.0677580833435
 
 uf125-025.cnf
 number of variables: 125
-number of solutions: 1888
-time allsat to find the solutions: 0.102807044983
-total time: 0.169291973114
+number of solutions: 1887
+time allsat to find the solutions: 0.0860397815704
+total time: 0.0860397815704
 
 uf125-026.cnf
 number of variables: 125
-number of solutions: 768
-time allsat to find the solutions: 0.257956027985
-total time: 0.288990974426
+number of solutions: 767
+time allsat to find the solutions: 0.183688879013
+total time: 0.183688879013
 
 uf125-027.cnf
 number of variables: 125
-number of solutions: 21280
-time allsat to find the solutions: 0.226256132126
-total time: 0.906322956085
+number of solutions: 21279
+time allsat to find the solutions: 0.482233047485
+total time: 0.482233047485
 
 uf125-028.cnf
 number of variables: 125
-number of solutions: 240
-time allsat to find the solutions: 0.115169048309
-total time: 0.129045009613
+number of solutions: 239
+time allsat to find the solutions: 0.0746650695801
+total time: 0.0746650695801
 
 uf125-029.cnf
 number of variables: 125
-number of solutions: 12312
-time allsat to find the solutions: 0.227339029312
-total time: 0.617251157761
+number of solutions: 12311
+time allsat to find the solutions: 0.308566093445
+total time: 0.308566093445
 
 uf125-030.cnf
 number of variables: 125
-number of solutions: 690
-time allsat to find the solutions: 0.100280046463
-total time: 0.128625869751
+number of solutions: 689
+time allsat to find the solutions: 0.0681791305542
+total time: 0.0681791305542
 
 uf125-031.cnf
 number of variables: 125
-number of solutions: 1584
-time allsat to find the solutions: 0.277770042419
-total time: 0.334619045258
+number of solutions: 1583
+time allsat to find the solutions: 0.206950902939
+total time: 0.206950902939
 
 uf125-032.cnf
 number of variables: 125
-number of solutions: 750
-time allsat to find the solutions: 0.229732036591
-total time: 0.260677099228
+number of solutions: 749
+time allsat to find the solutions: 0.15837097168
+total time: 0.15837097168
 
 uf125-033.cnf
 number of variables: 125
-number of solutions: 64710
-time allsat to find the solutions: 0.45251584053
-total time: 2.48658084869
+number of solutions: 64709
+time allsat to find the solutions: 0.938921928406
+total time: 0.938921928406
 
 uf125-034.cnf
 number of variables: 125
-number of solutions: 1643086
-time allsat to find the solutions: 9.57176589966
-total time: 64.8755698204
+number of solutions: 1643085
+time allsat to find the solutions: 17.0482151508
+total time: 17.0482151508
 
 uf125-035.cnf
 number of variables: 125
-number of solutions: 3348
-time allsat to find the solutions: 0.28308391571
-total time: 0.39267706871
+number of solutions: 3347
+time allsat to find the solutions: 0.21440911293
+total time: 0.21440911293
 
 uf125-036.cnf
 number of variables: 125
-number of solutions: 64
-time allsat to find the solutions: 0.0833430290222
-total time: 0.0869948863983
+number of solutions: 63
+time allsat to find the solutions: 0.0465478897095
+total time: 0.0465478897095
 
 uf125-037.cnf
 number of variables: 125
-number of solutions: 274482
-time allsat to find the solutions: 1.76977801323
-total time: 10.332611084
+number of solutions: 274481
+time allsat to find the solutions: 2.74340009689
+total time: 2.74340009689
 
 uf125-038.cnf
 number of variables: 125
-number of solutions: 14696
-time allsat to find the solutions: 0.297507047653
-total time: 0.748625993729
+number of solutions: 14695
+time allsat to find the solutions: 0.385119915009
+total time: 0.385119915009
 
 uf125-039.cnf
 number of variables: 125
-number of solutions: 5968
-time allsat to find the solutions: 0.204823970795
-total time: 0.395923852921
+number of solutions: 5967
+time allsat to find the solutions: 0.198719978333
+total time: 0.198719978333
 
 uf125-041.cnf
 number of variables: 125
-number of solutions: 36196
-time allsat to find the solutions: 0.311676979065
-total time: 1.45176482201
+number of solutions: 36195
+time allsat to find the solutions: 0.718680143356
+total time: 0.718680143356
 
 uf125-042.cnf
 number of variables: 125
-number of solutions: 2385624
-time allsat to find the solutions: 18.6058740616
-total time: 101.563286066
+number of solutions: 2385623
+time allsat to find the solutions: 28.6713180542
+total time: 28.6713180542
 
 uf125-043.cnf
 number of variables: 125
-number of solutions: 256
-time allsat to find the solutions: 0.190912008286
-total time: 0.20565700531
+number of solutions: 255
+time allsat to find the solutions: 0.0688941478729
+total time: 0.0688941478729
 
 uf125-044.cnf
 number of variables: 125
-number of solutions: 3456
-time allsat to find the solutions: 0.14174413681
-total time: 0.24856710434
+number of solutions: 3455
+time allsat to find the solutions: 0.128254890442
+total time: 0.128254890442
 
 uf125-045.cnf
 number of variables: 125
-number of solutions: 7592
-time allsat to find the solutions: 0.133685112
-total time: 0.364656925201
+number of solutions: 7591
+time allsat to find the solutions: 0.124495983124
+total time: 0.124495983124
 
 uf125-046.cnf
 number of variables: 125
-number of solutions: 712
-time allsat to find the solutions: 0.0931119918823
-total time: 0.120498180389
+number of solutions: 711
+time allsat to find the solutions: 0.0468330383301
+total time: 0.0468330383301
 
 uf125-047.cnf
 number of variables: 125
-number of solutions: 37632
-time allsat to find the solutions: 0.286739826202
-total time: 1.46095299721
+number of solutions: 37631
+time allsat to find the solutions: 0.316890954971
+total time: 0.316890954971
 
 uf125-048.cnf
 number of variables: 125
-number of solutions: 64
-time allsat to find the solutions: 0.258113145828
-total time: 0.261466026306
+number of solutions: 63
+time allsat to find the solutions: 0.16544508934
+total time: 0.16544508934
 
 uf125-049.cnf
 number of variables: 125
-number of solutions: 2760
-time allsat to find the solutions: 0.124680995941
-total time: 0.21630692482
+number of solutions: 2759
+time allsat to find the solutions: 0.0890049934387
+total time: 0.0890049934387
 
 uf125-050.cnf
 number of variables: 125
-number of solutions: 30804
-time allsat to find the solutions: 0.204941034317
-total time: 1.13937091827
+number of solutions: 30803
+time allsat to find the solutions: 0.261883020401
+total time: 0.261883020401
 
 uf125-051.cnf
 number of variables: 125
-number of solutions: 480
-time allsat to find the solutions: 0.152658939362
-total time: 0.17368388176
+number of solutions: 479
+time allsat to find the solutions: 0.104255914688
+total time: 0.104255914688
 
 uf125-052.cnf
 number of variables: 125
-number of solutions: 1848
-time allsat to find the solutions: 0.0959539413452
-total time: 0.16200709343
+number of solutions: 1847
+time allsat to find the solutions: 0.0701589584351
+total time: 0.0701589584351
 
 uf125-053.cnf
 number of variables: 125
-number of solutions: 1056
-time allsat to find the solutions: 0.0849149227142
-total time: 0.125613927841
+number of solutions: 1055
+time allsat to find the solutions: 0.0551149845123
+total time: 0.0551149845123
 
 uf125-054.cnf
 number of variables: 125
-number of solutions: 13582
-time allsat to find the solutions: 0.265094041824
-total time: 0.684976100922
+number of solutions: 13581
+time allsat to find the solutions: 0.270507097244
+total time: 0.270507097244
 
 uf125-055.cnf
 number of variables: 125
-number of solutions: 401512
-time allsat to find the solutions: 2.73693299294
-total time: 15.7165420055
+number of solutions: 401511
+time allsat to find the solutions: 9.22566699982
+total time: 9.22566699982
 
 uf125-056.cnf
 number of variables: 125
-number of solutions: 332180
-time allsat to find the solutions: 1.9267411232
-total time: 12.786935091
+number of solutions: 332179
+time allsat to find the solutions: 3.18715000153
+total time: 3.18715000153
 
 uf125-057.cnf
 number of variables: 125
-number of solutions: 36688
-time allsat to find the solutions: 0.429299116135
-total time: 1.55101013184
+number of solutions: 36687
+time allsat to find the solutions: 0.293334960938
+total time: 0.293334960938
 
 uf125-058.cnf
 number of variables: 125
-number of solutions: 96886
-time allsat to find the solutions: 0.614398002625
-total time: 3.67269802094
+number of solutions: 96885
+time allsat to find the solutions: 1.75469493866
+total time: 1.75469493866
 
 uf125-059.cnf
 number of variables: 125
-number of solutions: 99444
-time allsat to find the solutions: 0.654417037964
-total time: 3.78298902512
+number of solutions: 99443
+time allsat to find the solutions: 1.10566902161
+total time: 1.10566902161
 
 uf125-060.cnf
 number of variables: 125
-number of solutions: 451480
-time allsat to find the solutions: 2.69221496582
-total time: 17.5748319626
+number of solutions: 451479
+time allsat to find the solutions: 4.54227495193
+total time: 4.54227495193
 
 uf125-061.cnf
 number of variables: 125
-number of solutions: 313899
-time allsat to find the solutions: 1.66683197021
-total time: 11.6840100288
+number of solutions: 313898
+time allsat to find the solutions: 3.96972703934
+total time: 3.96972703934
 
 uf125-062.cnf
 number of variables: 125
-number of solutions: 694116
-time allsat to find the solutions: 4.47425508499
-total time: 27.673913002
+number of solutions: 694115
+time allsat to find the solutions: 6.73576617241
+total time: 6.73576617241
 
 uf125-063.cnf
 number of variables: 125
-number of solutions: 47280
-time allsat to find the solutions: 0.56555390358
-total time: 2.04017186165
+number of solutions: 47279
+time allsat to find the solutions: 0.45308303833
+total time: 0.45308303833
 
 uf125-064.cnf
 number of variables: 125
-number of solutions: 1352
-time allsat to find the solutions: 0.0687658786774
-total time: 0.117765903473
+number of solutions: 1351
+time allsat to find the solutions: 0.034059047699
+total time: 0.034059047699
 
 uf125-065.cnf
 number of variables: 125
-number of solutions: 8104
-time allsat to find the solutions: 0.20316195488
-total time: 0.459959983826
+number of solutions: 8103
+time allsat to find the solutions: 0.186737060547
+total time: 0.186737060547
 
 uf125-066.cnf
 number of variables: 125
-number of solutions: 4400
-time allsat to find the solutions: 0.18036198616
-total time: 0.326776981354
+number of solutions: 4399
+time allsat to find the solutions: 0.175551176071
+total time: 0.175551176071
 
 uf125-067.cnf
 number of variables: 125
-number of solutions: 9920
-time allsat to find the solutions: 0.118067026138
-total time: 0.430154085159
+number of solutions: 9919
+time allsat to find the solutions: 0.101148843765
+total time: 0.101148843765
 
 uf125-068.cnf
 number of variables: 125
-number of solutions: 1909352
-time allsat to find the solutions: 15.8124690056
-total time: 80.7303040028
+number of solutions: 1909351
+time allsat to find the solutions: 27.3239209652
+total time: 27.3239209652
 
 uf125-069.cnf
 number of variables: 125
-number of solutions: 18872
-time allsat to find the solutions: 0.224456071854
-total time: 0.814744949341
-
-uf125-070.cnf
-number of variables: 125
-number of solutions: 3960444
-time allsat to find the solutions: 26.2819020748
-total time: 164.778534889
+number of solutions: 18871
+time allsat to find the solutions: 0.323305845261
+total time: 0.323305845261
 
 uf125-071.cnf
 number of variables: 125
-number of solutions: 5568
-time allsat to find the solutions: 0.306537866592
-total time: 0.48484992981
+number of solutions: 5567
+time allsat to find the solutions: 0.175579071045
+total time: 0.175579071045
 
 uf125-072.cnf
 number of variables: 125
-number of solutions: 490
-time allsat to find the solutions: 0.10591506958
-total time: 0.128306150436
+number of solutions: 489
+time allsat to find the solutions: 0.0352649688721
+total time: 0.0352649688721
 
 uf125-073.cnf
 number of variables: 125
-number of solutions: 8640
-time allsat to find the solutions: 0.260729074478
-total time: 0.53590798378
+number of solutions: 8639
+time allsat to find the solutions: 0.232572078705
+total time: 0.232572078705
 
 uf125-074.cnf
 number of variables: 125
-number of solutions: 14112
-time allsat to find the solutions: 0.171349048615
-total time: 0.617774009705
+number of solutions: 14111
+time allsat to find the solutions: 0.202389001846
+total time: 0.202389001846
 
 uf125-076.cnf
 number of variables: 125
-number of solutions: 17372
-time allsat to find the solutions: 0.487998008728
-total time: 1.03716397285
+number of solutions: 17371
+time allsat to find the solutions: 0.486725091934
+total time: 0.486725091934
 
 uf125-077.cnf
 number of variables: 125
-number of solutions: 4608
-time allsat to find the solutions: 0.12740778923
-total time: 0.288301944733
+number of solutions: 4607
+time allsat to find the solutions: 0.0962300300598
+total time: 0.0962300300598
 
 uf125-078.cnf
 number of variables: 125
-number of solutions: 21864
-time allsat to find the solutions: 0.348315000534
-total time: 1.07334303856
+number of solutions: 21863
+time allsat to find the solutions: 0.425415992737
+total time: 0.425415992737
 
 uf125-079.cnf
 number of variables: 125
-number of solutions: 40523
-time allsat to find the solutions: 0.312880992889
-total time: 1.56227397919
+number of solutions: 40522
+time allsat to find the solutions: 0.787482023239
+total time: 0.787482023239
 
 uf125-080.cnf
 number of variables: 125
-number of solutions: 249244
-time allsat to find the solutions: 1.70855283737
-total time: 9.755204916
+number of solutions: 249243
+time allsat to find the solutions: 4.68381094933
+total time: 4.68381094933
 
 uf125-081.cnf
 number of variables: 125
-number of solutions: 6144
-time allsat to find the solutions: 0.0971121788025
-total time: 0.293068170547
+number of solutions: 6143
+time allsat to find the solutions: 0.0876710414886
+total time: 0.0876710414886
 
 uf125-082.cnf
 number of variables: 125
-number of solutions: 81216
-time allsat to find the solutions: 0.618140935898
-total time: 3.09823894501
+number of solutions: 81215
+time allsat to find the solutions: 1.4590280056
+total time: 1.4590280056
 
 uf125-083.cnf
 number of variables: 125
-number of solutions: 144
-time allsat to find the solutions: 0.0798530578613
-total time: 0.0880711078644
-
-uf125-084.cnf
-number of variables: 125
-number of solutions: 3695912
-time allsat to find the solutions: 27.157200098
-total time: 154.108289003
+number of solutions: 143
+time allsat to find the solutions: 0.0496370792389
+total time: 0.0496370792389
 
 uf125-085.cnf
 number of variables: 125
-number of solutions: 1304
-time allsat to find the solutions: 0.360426902771
-total time: 0.408452987671
+number of solutions: 1303
+time allsat to find the solutions: 0.158709049225
+total time: 0.158709049225
 
 uf125-086.cnf
 number of variables: 125
-number of solutions: 18112
-time allsat to find the solutions: 0.294023990631
-total time: 0.870845079422
+number of solutions: 18111
+time allsat to find the solutions: 0.318406820297
+total time: 0.318406820297
 
 uf125-087.cnf
 number of variables: 125
-number of solutions: 1281492
-time allsat to find the solutions: 11.0819139481
-total time: 53.9242050648
+number of solutions: 1281491
+time allsat to find the solutions: 17.0586740971
+total time: 17.0586740971
 
 uf125-088.cnf
 number of variables: 125
-number of solutions: 2272
-time allsat to find the solutions: 0.185070037842
-total time: 0.262665987015
+number of solutions: 2271
+time allsat to find the solutions: 0.0832540988922
+total time: 0.0832540988922
 
 uf125-089.cnf
 number of variables: 125
-number of solutions: 259204
-time allsat to find the solutions: 1.83357405663
-total time: 10.2805359364
+number of solutions: 259203
+time allsat to find the solutions: 3.67702889442
+total time: 3.67702889442
 
 uf125-090.cnf
 number of variables: 125
-number of solutions: 49480
-time allsat to find the solutions: 0.530151844025
-total time: 2.09571290016
+number of solutions: 49479
+time allsat to find the solutions: 0.740365982056
+total time: 0.740365982056
 
 uf125-091.cnf
 number of variables: 125
-number of solutions: 10944
-time allsat to find the solutions: 0.246886968613
-total time: 0.604475975037
+number of solutions: 10943
+time allsat to find the solutions: 0.186506032944
+total time: 0.186506032944
 
 uf125-092.cnf
 number of variables: 125
-number of solutions: 202490
-time allsat to find the solutions: 1.52356386185
-total time: 8.02440690994
+number of solutions: 202489
+time allsat to find the solutions: 1.73006296158
+total time: 1.73006296158
 
 uf125-093.cnf
 number of variables: 125
-number of solutions: 768
-time allsat to find the solutions: 0.142459869385
-total time: 0.17354798317
-
-uf125-094.cnf
-number of variables: 125
-number of solutions: 4076674
-time allsat to find the solutions: 29.8576819897
-total time: 169.382678986
-
-uf125-095.cnf
-number of variables: 125
-number of solutions: 336
-time allsat to find the solutions: 0.244163990021
-total time: 0.261328935623
+number of solutions: 767
+time allsat to find the solutions: 0.06418800354
+total time: 0.06418800354
 
 uf125-096.cnf
 number of variables: 125
-number of solutions: 339576
-time allsat to find the solutions: 1.90148997307
-total time: 12.5101318359
+number of solutions: 339575
+time allsat to find the solutions: 3.31573200226
+total time: 3.31573200226
 
 uf125-097.cnf
 number of variables: 125
-number of solutions: 487782
-time allsat to find the solutions: 3.34163784981
-total time: 19.0737240314
+number of solutions: 487781
+time allsat to find the solutions: 5.69863891602
+total time: 5.69863891602
 
 uf125-098.cnf
 number of variables: 125
-number of solutions: 438
-time allsat to find the solutions: 0.178665161133
-total time: 0.196412086487
+number of solutions: 437
+time allsat to find the solutions: 0.0749361515045
+total time: 0.0749361515045
 
 uf125-099.cnf
 number of variables: 125
-number of solutions: 123768
-time allsat to find the solutions: 0.806445121765
-total time: 4.82106208801
+number of solutions: 123767
+time allsat to find the solutions: 0.991988897324
+total time: 0.991988897324
 
 uf125-0100.cnf
 number of variables: 125
-number of solutions: 120212
-time allsat to find the solutions: 0.857077121735
-total time: 4.57544398308
+number of solutions: 120211
+time allsat to find the solutions: 1.7557489872
+total time: 1.7557489872
 
-uf125-03.cnf
+uf125-095.cnf
 number of variables: 125
-number of solutions: 13511832
-time allsat to find the solutions: 80.7492938042
-total time: -10
-
-uf125-075.cnf
-number of variables: 125
-number of solutions: 6507240
-time allsat to find the solutions: 41.1219818592
-total time: 267.554096937
-
-uf125-040.cnf
-number of variables: 125
-number of solutions: 9986037
-time allsat to find the solutions: 63.372740984
-total time: -10
+number of solutions: 335
+time allsat to find the solutions: 0.0682430267334
+total time: 0.0682430267334
 

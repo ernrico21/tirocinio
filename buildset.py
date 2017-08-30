@@ -1,5 +1,5 @@
 from sympy.logic.boolalg import to_cnf
-
+#replace F(x,Y) with fsym1 and return the string dictionary an number of simbols
 def changeFormula(s,symbol):
     i=0
     j=0
@@ -19,6 +19,12 @@ def changeFormula(s,symbol):
         elif s[i:i+3]=='Not':
             op=1
             i+=3
+        elif s[i:i+10]=='Equivalent':
+            op=1
+            i+=10
+        elif s[i:i+7]=='Implies':
+            op=1
+            i+=7
         if s[i]=='(':
             if op==1:
                 op=0
@@ -43,6 +49,94 @@ def findSymbol(f):
         newsy=newsy[0:-1]+'ew'
     return newsy
         
+#replace implies and Equivalent with their And Or version
+def ResolveEqImp(st):
+    s=str.replace(st,' ','')
+    i=0
+    op='N'#define if i'm inside an Equal or Implies or not
+    elemntpoint=0 #index of the beginning of the argument of the opration
+    parentesyscount=0#if the ocunt is 0 means that i ave seen al the operator inside the operation and i can begin the sostitution (=+1  )=-1
+    elements=[]#where i put the elements of an operation
+    init=0#point where i begin replacing ex: Equivalence(.....) the init is where the 'E' is 
+    while i<len(s):  
+        #print s[0:i+1]
+        if s[i:i+10]=='Equivalent':
+            if op=='N':
+                op='E'
+                init=i
+                elemntpoint=i+11
+            i+=10
+            parentesyscount+=1
+        elif s[i:i+7]=='Implies':
+            if op=='N':
+                op='I'
+                init=i
+                elemntpoint=i+8
+            i+=7
+            parentesyscount+=1
+        elif s[i]=='(':
+            if op != 'N': 
+                parentesyscount+=1
+        elif s[i]==',':
+            if parentesyscount==1 and op != 'N' :
+                elements.append(s[elemntpoint:i])
+                elemntpoint=i+1
+        elif s[i]==')':
+            if op != 'N':                
+                parentesyscount-=1
+            if parentesyscount==0 and op != 'N':
+                tempformula=''
+                newstr=''
+                elements.append(s[elemntpoint:i])  
+                if op== 'E':
+                    if len(elements)!=2:
+                        j=1                    
+                        newelem=''
+                        while j < len(elements)-1:
+                            newelem=newelem+'Equivalent('+elements[j]+','
+                            j+=1
+                        newelem=newelem+elements[j]
+                        while j>1:
+                            newelem+=')'
+                            j-=1
+                        elements[1]=newelem
+                    newstr='And(Or('+elements[0]+',Not('+elements[1]+')),Or(Not('+elements[0]+'),'+elements[1]+'))'
+                    if init!=0:
+                        tempformula=s[0:init]
+                    tempformula+=newstr
+                    if i!= len(s)-1:
+                        tempformula+=s[i+1:]                    
+                    elements=[]
+                    s=tempformula
+                    op='N'
+                    i=init+6
+                if op== 'I':
+                    if len(elements)!=2:
+                        j=1                    
+                        newelem=''
+                        while j < len(elements)-1:
+                            newelem=newelem+'Implies('+elements[j]+','
+                            j+=1
+                        newelem=newelem+elements[j]
+                        while j>1:
+                            newelem+=')'
+                            j-=1
+                        elements[1]=newelem
+                    newstr='Or(Not('+elements[0]+'),'+elements[1]+')'
+                    if init!=0:
+                        tempformula=s[0:init]
+                    tempformula+=newstr
+                    if i!= len(s)-1:
+                        tempformula+=s[i+1:]                    
+                    elements=[]
+                    s=tempformula
+                    op='N'
+                    i=init+6
+        #print parentesyscount
+        i+=1  
+    return s
+
+
 def buildSet(Kb,Dt):
     Sym=[]
     j=0
@@ -57,7 +151,9 @@ def buildSet(Kb,Dt):
         name='Sym'+str(j)            
         symbol=findSymbol(Dt[i])
         resset = changeFormula(Dt[i],symbol)
-        formula='Or(And('+name+','+resset[0]+'),And(Not('+name+'),Not('+resset[0]+')))'
+        #newformula= ResolveEqImp(resset[0])
+        #formula='And(Or('+name+',Not('+newformula+')),Or(Not('+name+'),'+newformula+'))'
+        formula='And(Or('+name+',Not('+resset[0]+')),Or(Not('+name+'),'+resset[0]+'))'
         cnfstr =str(to_cnf(formula))
 
         for i in range(0,resset[2]):
@@ -78,7 +174,19 @@ def buildSet(Kb,Dt):
     return KB_ext
 
 
+def buildJustFormula (f):
+    symbol=findSymbol(f)
+    resset = changeFormula(f,symbol)
+    newformula= ResolveEqImp(resset[0])
+    cnfstr =str(to_cnf(newformula))
+    for i in range(0,resset[2]):
+        cnfstr=str.replace(cnfstr,symbol+str(i),resset[1][symbol+str(i)])
+    return cnfstr
 
+
+
+
+'''
 
 f1='Or(And(A(x),B(x)),Not(And(E(x,y),G(k,z))))'
 f2='And(A(x),B(x))'
@@ -90,6 +198,6 @@ p3='Or(D(x),E(x))'
 
 Kb=[f1,f2,f3]
 Dt=[p1,p2,p3]
-
-print (buildSet(Kb,Dt))
+'''
+#print (buildSet(Kb,Dt))
 

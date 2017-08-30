@@ -326,10 +326,16 @@ struct list* /**int* */ main(char* argv)
     //fclose(in);
     
     //printf(in);
+    int *array = (int *)malloc((s->size) * sizeof(int*));
+    for (int i=0;i<s->size;i++)
+    {
+        array[i]=2;
+    }
+    struct list* lsol=new_list(array, NULL);
+
     if (st == l_False){
         solver_delete(s);
-        printf("Trivial problem\nUNSATISFIABLE\n");
-        exit(20);
+        return lsol;
     }
 
     s->verbosity = 0;
@@ -337,12 +343,7 @@ struct list* /**int* */ main(char* argv)
         fprintf(stderr, "ERROR! Cound not set signal");
         exit(1);
     }
-    int *array = (int *)malloc((s->size) * sizeof(int*));
-    for (int i=0;i<s->size;i++)
-    {
-        array[i]=2;
-    }
-    struct list* lsol=new_list(array, NULL);
+    
     st = solver_solve(s,0,0,lsol);
 
    // printf("variables         : %12d\n",   s->size);
